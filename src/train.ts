@@ -1,3 +1,15 @@
+function add(a: number, b: number): number {
+    return a + b;
+}
+
+console.log(add(5, 10)); // Natija: 15
+console.log(add(5, 10));
+
+
+
+
+
+/*
 // H-TASK: 
 
 // shunday function tuzing, u integerlardan iborat arrayni
@@ -14,3 +26,4 @@ function getPositive(numbers: number[]): string {
 
 const result = getPositive([1, -4, 2]);
 console.log("result:", result);
+*/
