@@ -1,13 +1,20 @@
-function add(a: number, b: number): number {
-    return a + b;
+
+// H2-TASK: 
+// Shunday function tuzing, unga
+// string argument pass bolsin.
+// Function ushbu agrumentdagi digitlarni 
+// Yangi stringda return qilsin
+// MASALAN: getDigits("m14i1t") return qiladi "141"
+
+function getDigits(input: string): string {
+    return input.replace(/\D/g, ""); // Matndan raqam bo'lmagan belgilarni olib tashlaydi
 }
-
-console.log(add(5, 10)); // Natija: 15
-console.log(add(5, 10));
-
-
-
-
+// replace() matndagi korsatilgan belgilarni qidiradi va almashtiradi!
+// (/\D/g, "") raqam bolmagan belgilarni anglatadi!
+// g esa matndagi barcha mos keluvchi qisimlarni qidiradi!
+// "" esa bosh string bilan almashtiradi yani ularni olib tashledi!
+const result = getDigits("m14i1t");
+console.log("result:", result);
 
 /*
 // H-TASK: 
