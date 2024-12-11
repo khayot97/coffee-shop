@@ -1,4 +1,16 @@
+//  Project Standards:
+// - Login standards:
+// -  Naming standards: 
+//    Function, method, variable => Camel    goHOME
+//    class => Pascal                       MemberService
+//    folder => Kebab
+//    css => Snake                          button_stle
+// - Error handling 
 
+
+
+
+/*
 // H2-TASK: 
 // Shunday function tuzing, unga
 // string argument pass bolsin.
@@ -16,7 +28,7 @@ function getDigits(input: string): string {
 const result = getDigits("m14i1t");
 console.log("result:", result);
 
-/*
+
 // H-TASK: 
 
 // shunday function tuzing, u integerlardan iborat arrayni
