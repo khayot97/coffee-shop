@@ -1,3 +1,81 @@
+// TASK I:
+
+// Shunday function tuzing, u parametrdagi array ichida eng ko'p
+// takrorlangan raqamni topib qaytarsin.
+
+// MASALAN: majorityElement([1, 2, 3, 4, 5, 4, 3, 4]); return 4
+
+// Yuqoridag misolda argument sifatida kiritilayotgan
+// array tarkibida 4 soni ko'p takrorlanganligi uchun 4'ni return qilmoqda.
+
+function majorityElement(arr: number[]): number {
+    // Arraylarni sortlash!
+    arr.sort((a, b) => a - b); 
+    // Maximal takrorlanishni topish!
+    let maxCount = 1; // Eng kop takrorlanish soni!
+    let currentCount = 1; // Hozirgi elementning takrorlanish soni!
+    let majority = arr[0]; // Eng kop takrorlangan element!
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] === arr[i - 1]) {
+            // Agar bir xil element bolsa, sanashni davom ettiramiz!
+            currentCount++
+        }  else {
+            // Yangi element paydo bolganda, sanashni yangilaymiz!
+            currentCount = 1;
+        }
+        // Agar yangi maksimal takrorlanish topilsa, uni yangilaymiz!
+        if (currentCount > maxCount) {
+            maxCount = currentCount;
+            majority = arr[i];
+        }
+    }
+    // Natija qaytarish!
+    return majority;
+}
+
+
+const result = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
+
+console.log("result:", result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function majorityElement(arr: number[]): number[] {
+//     const dublicates: number[] = [];
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr.indexOf(arr[i]) !== i && !dublicates.includes(arr[i])) {
+//             dublicates.push(arr[i]);
+//         }
+//     }
+
+//     return dublicates;
+// }
+
+// const result = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
+
+// console.log("test", result);
+/*
+
 //  Project Standards:
 // - Login standards:
 // -  Naming standards: 
@@ -8,9 +86,6 @@
 // - Error handling 
 
 
-
-
-/*
 // H2-TASK: 
 // Shunday function tuzing, unga
 // string argument pass bolsin.
