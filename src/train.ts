@@ -41,24 +41,6 @@ console.log("result:", result);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function majorityElement(arr: number[]): number[] {
 //     const dublicates: number[] = [];
 
@@ -84,6 +66,10 @@ console.log("result:", result);
 //    folder => Kebab
 //    css => Snake                          button_stle
 // - Error handling 
+
+// Tradational Api
+//  Rest Api
+// GraphQl Api
 
 
 // H2-TASK: 
