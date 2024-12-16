@@ -1,8 +1,3 @@
-// Architectural patternt: MVC, Dependency Injection, MVP
-// MVC = Model VIEW CONTROLLER
-// Design pattern: Middle, Decotar
-
-//import moment from 'moment'; // const moment  = require('moment);
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -12,7 +7,7 @@ import app from "./app"
 
 mongoose
 .connect(process.env.MONGO_URL as string, {})
-.then((data) => {
+.then(data => {
     console.log("MongoDB connection succsed")
     const PORT = process.env.PORT ?? 3003; 
     app.listen(PORT, function () {

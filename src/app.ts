@@ -8,7 +8,7 @@ import { MORGAN_FORMAT } from "./libs/config";
 /** 1-ENTRANCE*/
 
 const app = express();
-console.log("__dirname:", __dirname)
+// console.log("__dirname:", __dirname)
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
