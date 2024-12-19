@@ -105,6 +105,9 @@ console.log("result:", result);
 //  Rest Api
 // GraphQl Api
 
+// Tradational FD => BSSR (Admin) => EJS
+// Modern FD => SPA (Users' Application) => REACT
+
 
 // H2-TASK: 
 // Shunday function tuzing, unga
