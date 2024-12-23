@@ -104,7 +104,7 @@ public async login(input: LoginInput): Promise<Member> {
 
 export default MemberService;
 
-// import MemberModel from "../schema/Member.model";
+
 // import { LoginInput, Member, MemberInput } from "../libs/types/member";
 // import Errors, { HttpCode, Message } from "../libs/Errors";
 // import { MemberType } from "../libs/enums/member.enum";
