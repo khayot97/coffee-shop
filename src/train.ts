@@ -108,6 +108,9 @@ console.log("result:", result);
 // Tradational FD => BSSR (Admin) => EJS
 // Modern FD => SPA (Users' Application) => REACT
 
+// request join
+// self destroy: cookieslar ozini ozi destroy qiloa oladi
+
 
 // H2-TASK: 
 // Shunday function tuzing, unga
