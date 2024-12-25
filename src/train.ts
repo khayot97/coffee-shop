@@ -122,25 +122,39 @@ console.log("result:", result);
 
 // console.log("test", result);
 
+/** Project Standards:
+- Login standards:
+-  Naming standards: 
+   Function, method, variable => Camel    goHOME
+   class => Pascal                       MemberService
+   folder => Kebab
+   css => Snake                          button_stle
+- Error handling 
+ */
 
-//  Project Standards:
-// - Login standards:
-// -  Naming standards: 
-//    Function, method, variable => Camel    goHOME
-//    class => Pascal                       MemberService
-//    folder => Kebab
-//    css => Snake                          button_stle
-// - Error handling 
+/** Request:
+Tradational Api
+Rest Api
+GraphQl Api
+ */
 
-// Tradational Api
-//  Rest Api
-// GraphQl Api
 
-// Tradational FD => BSSR (Admin) => EJS
-// Modern FD => SPA (Users' Application) => REACT
+/** Frontend Development:
+Tradational FD => BSSR (Admin) => EJS
+Modern FD => SPA (Users' Application) => REACT
 
-// request join
-// self destroy: cookieslar ozini ozi destroy qiloa oladi
+ */
+
+/** Cookies:
+request join
+self destroy: cookieslar ozini ozi destroy qiloa oladi
+/*
+
+/** Validation:
+ * Frontend validation
+ * Backend validation
+ * Database validation
+ */
 
 
 // H2-TASK: 

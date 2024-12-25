@@ -1,4 +1,11 @@
+import ProductModel from "../schema/Product.model";
 
-class ProductController {}
+class ProductService {
+    private readonly productModel;
 
-export default ProductController;
+    constructor() {
+        this.productModel = ProductModel;
+    }
+}
+
+export default ProductService;
