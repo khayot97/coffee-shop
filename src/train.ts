@@ -1,4 +1,32 @@
-// TASK K:
+// TASK L:
+
+// So'zlarni ketma - ketligini buzmasdan har bir so'zni
+// alohida teskarisiga o'girib beradigan fucntion tuzing.
+// Funtion yagona string qabul qilsin
+
+// MASALAN: reverseSentence("we like coding!")
+//  return "ew ekil !gnidoc";
+// Qaytayotgan natijaga e'tibor bersangiz,
+// so'zlar joyi o'zgarmasdan turgan o'rnida
+//  teskarisiga o'girilmoqda
+
+function reverseSentence(inupt: string): string {
+   // 1. Stringa so'zlarni ajratish!
+   const words: string[] = inupt.split(" ");
+
+   // 2. Har bir so'zni teskari qilish!
+   const reverseWords: string[] = words.map((word: string) => {
+
+    return word.split("").reverse().join("");
+   });
+
+   // 3. Teskari bo'lgan so'zlarni birlashtiradi!
+    return reverseWords.join(" ");
+}
+const result = reverseSentence("we like coding!");
+console.log("result:", result);
+
+/*// TASK K:
 
 // Berilayotgan parametr tarkibida nechta unli harf bor
 // ekanligini aniqlovchi function tuzing
@@ -27,6 +55,7 @@ function countVowels(input: string): number {
 }
 const result = countVowels("string"); 
 console.log("result:", result);
+
 
 /*
 // TASK J:
@@ -163,7 +192,7 @@ self destroy: cookieslar ozini ozi destroy qiloa oladi
 // Function ushbu agrumentdagi digitlarni 
 // Yangi stringda return qilsin
 // MASALAN: getDigits("m14i1t") return qiladi "141"
-
+/*
 function getDigits(input: string): string {
     return input.replace(/\D/g, ""); // Matndan raqam bo'lmagan belgilarni olib tashlaydi
 }
