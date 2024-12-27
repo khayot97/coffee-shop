@@ -1,7 +1,7 @@
 import express from "express";
 const routerAdmin = express.Router();
 import restaurantController from "./controllers/restaurant.controller";
-import productController from "./controllers/product.controller";
+import productController from "./controllers/product.contollers";
 import makeUploader from "./libs/utils/uploader";
 
 /** Restaurant */
@@ -13,7 +13,7 @@ routerAdmin
     .get("/signup", restaurantController.getSignup)
     .post(
         "/signup",   
-       makeUploader("members").single("memberccccImage"),
+       makeUploader("members").single("memberImage"),
        restaurantController.processSignup
 );
 

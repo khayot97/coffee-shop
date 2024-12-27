@@ -43,9 +43,12 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
     try {
         console.log("processSignup");
-    
+        // const file = req.file;
+
         const newMember: MemberInput = req.body;
+        // newMember.memberImage = file?.path;
         newMember.memberType = MemberType.RESTAURANT;
+
         const result = await memberService.processSignup(newMember);
         req.session.member = result;
         req.session.save(function () {
