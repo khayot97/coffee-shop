@@ -1,3 +1,34 @@
+// TASK M:
+
+// Shunday function tuzing, u raqamlardan tashkil topgan array qabul qilsin
+// va array ichidagi har bir raqam uchun raqamning
+//  o'zi va hamda o'sha raqamni kvadratidan
+// tashkil topgan object hosil qilib, hosil
+//  bo'lgan objectlarni array ichida qaytarsin!
+
+// MASALAN: MASALAN: getSquareNumbers([1, 2, 3])
+//  return [{ number: 1, square: 1 }, { number: 2, square: 4 },
+//      { number: 3, square: 9 }];
+
+function getSquareNumbers(input: number[]): {number: number; square: number}[] {
+    return input.map((i) => ({
+        number: i, // 1 numberni o'zi!
+        square: i * i, // kvadratini chiqaradi!
+    }));
+}
+
+const result = getSquareNumbers([1, 2, 3]);
+console.log("result:", result);
+
+// Mapga oid misollar:
+// function getSquareNumbers(input: number[]) {    
+//     return input.map(num => num * 2);
+// }
+
+// const result = getSquareNumbers([1, 2, 3]);
+// console.log("result:", result);
+
+/*
 // TASK L:
 
 // So'zlarni ketma - ketligini buzmasdan har bir so'zni
@@ -26,7 +57,7 @@ function reverseSentence(inupt: string): string {
 const result = reverseSentence("we like coding!");
 console.log("result:", result);
 
-/*// TASK K:
+// TASK K:
 
 // Berilayotgan parametr tarkibida nechta unli harf bor
 // ekanligini aniqlovchi function tuzing

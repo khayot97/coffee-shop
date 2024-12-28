@@ -19,7 +19,7 @@ export interface Product {
     ProductViews: number;
 }
 
-export interface ProductInpute {
+export interface ProductInput {
     ProductStatus?: ProductStatus;
     ProductCollection: ProductCollection;
     ProductName: string;
@@ -30,4 +30,18 @@ export interface ProductInpute {
     ProductDesc?: string;
     ProductImages?: string[];
     ProductViews: number;
+}
+
+export interface ProductUpdateInput {
+    _id: ObjectId;
+    ProductStatus?: ProductStatus;
+    ProductCollection?: ProductCollection;
+    ProductName?: string;
+    ProductPrice?: number;
+    ProductLeftCount?: number;
+    ProductSize?: ProductSize;
+    ProductVolume?: number;
+    ProductDesc?: string;
+    ProductImages?: string[];
+    ProductViews?: number;
 }
