@@ -29,12 +29,12 @@ const productSchema = new Schema(
         },
 
         ProductPrice: {
-            type: String,
+            type: Number,
             required: true,
         },
 
         ProductLeftCount: {
-            type: String,
+            type: Number,
             required: true,
         },
 
@@ -45,14 +45,13 @@ const productSchema = new Schema(
         },
 
         ProductVolume: {
-            type: String,
+            type: Number,
             enum: ProductVolume,
             default: ProductVolume.ONE,
         },
 
         ProductDesc: {
             type: String,
-            required: true,
         },
 
         ProductImages: {
@@ -70,7 +69,7 @@ const productSchema = new Schema(
 );
 
 productSchema.index(
-    { producname: 1, ProductSize: 1, ProductVolume: 1},
+    { productName: 1, ProductSize: 1, ProductVolume: 1},
     { unique: true }
 );
 export default mongoose.model("Product", productSchema);
