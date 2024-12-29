@@ -7,41 +7,42 @@ import {
 
 export interface Product {
     _id: ObjectId;
-    ProductStatus: ProductStatus;
-    ProductCollection: ProductCollection;
-    ProductName: string;
-    ProductPrice: number;
-    ProductLeftCount: number;
-    ProductSize: ProductSize;
-    ProductVolume: number;
-    ProductDesc?: string;
-    ProductImages: string[];
-    ProductViews: number;
+    productStatus: ProductStatus;
+    productCollection: ProductCollection;
+    productName: string;
+    productPrice: number;
+    productLeftCount: number;
+    productSize: ProductSize;
+    productVolume: number;
+    productDesc?: string;
+    productImages: string[];
+    productViews: number;
 }
 
 export interface ProductInput {
-    ProductStatus?: ProductStatus;
-    ProductCollection: ProductCollection;
-    ProductName: string;
-    ProductPrice: number;
-    ProductLeftCount: number;
-    ProductSize?: ProductSize;
-    ProductVolume?: number;
-    ProductDesc?: string;
-    ProductImages?: string[];
-    ProductViews: number;
+    productStatus?: ProductStatus;
+    productCollection: ProductCollection;
+    productName: string;
+    productPrice: number;
+    productLeftCount: number;
+    productSize?: ProductSize;
+    productVolume?: number;
+    productDesc?: string;
+    productImages?: string[];
+    productViews?: number;
 }
 
 export interface ProductUpdateInput {
     _id: ObjectId;
-    ProductStatus?: ProductStatus;
-    ProductCollection?: ProductCollection;
-    ProductName?: string;
-    ProductPrice?: number;
-    ProductLeftCount?: number;
-    ProductSize?: ProductSize;
-    ProductVolume?: number;
-    ProductDesc?: string;
-    ProductImages?: string[];
-    ProductViews?: number;
+    productStatus?: ProductStatus;
+    productCollection?: ProductCollection;
+    productName?: string;
+    productPrice?: number;
+    productLeftCount?: number;
+    productSize?: ProductSize;
+    productVolume?: number;
+    productDesc?: string;
+    productImages?: string[];
+    productViews?: number;
 }
+
