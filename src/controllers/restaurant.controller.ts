@@ -116,10 +116,9 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 restaurantController.getUsers = async (req: Request, res: Response) => {
     try {
         console.log("getUsers");
-        
         const result = await memberService.getUsers();
         //test uchun
-        console.log("result:", result);
+        // console.log("result:", result);
         res.render("users", { users: result });
     } catch (err) {
         console.log("Error, getUsers:", err);
@@ -128,11 +127,15 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
 };
 
 /** updateChosenUser */
-restaurantController.updateChosenUser = (req: Request, res: Response) => {
+restaurantController.updateChosenUser = async (req: Request, res: Response) => {
     try {
         console.log("updateChosenUser");
+        const result = await memberService.updateChosenUser(req.body);
+        res.status(HttpCode.OK).json({ data: result});
     } catch (err) {
         console.log("Error, updateChosenUser:", err);
+        if (err instanceof Errors) res.status(err.code).json(err);
+        else res.status(Errors.standard.code).json(Errors.standard);
     }
 };
 
