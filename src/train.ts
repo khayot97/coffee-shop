@@ -1,3 +1,25 @@
+// TASK-N: 
+
+// Shunday function yozing, u string qabul qilsin va string
+// palindrom yani togri oqilganda ham, orqasidan oqilganda
+// ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+// MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+
+function palindromCheck(word: string): boolean {
+    // Kichiki hrflarga o'tkazamiz va hariflarni o'zini olib qolamiz!
+    const cleanWord = word.toLowerCase().replace(/[^a-z]/g, '');
+    // So'zlarni teskari yozilishini hosil qilamiz!
+    const reverseWords = cleanWord.split('').reverse().join('');
+    // teskari va asl so'zlarni solishtiramiz!
+    return cleanWord === reverseWords;
+}
+
+const result1 = palindromCheck("dad");
+const result2 = palindromCheck("son");
+console.log("result1:", result1);
+console.log("result2:", result2);
+
+/*
 // TASK M:
 
 // Shunday function tuzing, u raqamlardan tashkil topgan array qabul qilsin
@@ -28,7 +50,6 @@ console.log("result:", result);
 // const result = getSquareNumbers([1, 2, 3]);
 // console.log("result:", result);
 
-/*
 // TASK L:
 
 // So'zlarni ketma - ketligini buzmasdan har bir so'zni
