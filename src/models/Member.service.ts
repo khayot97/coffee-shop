@@ -15,8 +15,8 @@ class MemberService {
 
 /** SPA */
 
+/** Password hashing */
 public async signup(input: MemberInput): Promise<Member> {
-    // Password hashing
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
@@ -54,8 +54,6 @@ public async login(input: LoginInput): Promise<Member> {
     return await this.memberModel.findById(member._id).lean().exec();
 }
 
-
-
 /** BSSR */
     // Sign Up
     public async processSignup(input: MemberInput): Promise<Member> {
@@ -92,13 +90,20 @@ public async login(input: LoginInput): Promise<Member> {
             member.memberPassword
         );
 
-        // const isMatch = input.memberPassword === member.memberPassword;
-
         if (!isMatch) {
             throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
         }
 
         return await this.memberModel.findById(member._id).exec();
+    }
+
+/** getUser */
+    public async getUsers(): Promise<Member[]> {
+        const result = await this.memberModel
+            .find({ memberType: MemberType.USER })
+            .exec();
+        if  (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+        return result;
     }
 };
 

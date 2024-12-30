@@ -19,6 +19,8 @@ restaurantController.goHome = (req: Request, res: Response) => {
     }
 };
 
+
+/** getSignup */
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
         console.log("getSignup");
@@ -29,6 +31,7 @@ restaurantController.getSignup = (req: Request, res: Response) => {
     }
 };
 
+/** getLogin */
 restaurantController.getLogin = (req: Request, res: Response) => {
     try {
         console.log("getLogin");
@@ -39,7 +42,7 @@ restaurantController.getLogin = (req: Request, res: Response) => {
     }
 };
 
-
+/** processSignup */
 restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
     try {
         console.log("processSignup");
@@ -66,6 +69,7 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
     }
 };
 
+/** processLogin */
 restaurantController.processLogin = async (req: AdminRequest, res: Response) => {
     try {
         console.log("processLogin");
@@ -85,7 +89,7 @@ restaurantController.processLogin = async (req: AdminRequest, res: Response) => 
     }
 };
 
-// logout
+/** logout */
 restaurantController.logout = async (req: AdminRequest, res: Response) => {
     try {
         console.log("logout");
@@ -98,8 +102,41 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
     }
 };
 
+restaurantController.getLogin = (req: Request, res: Response) => {
+    try {
+        console.log("getLogin");
+        res.render("login");
+    } catch (err) {
+        console.log("Error, getLogin:", err);
+        res.redirect("/admin")
+    }
+};
 
-// check-me
+/** getUsers */
+restaurantController.getUsers = async (req: Request, res: Response) => {
+    try {
+        console.log("getUsers");
+        
+        const result = await memberService.getUsers();
+        //test uchun
+        console.log("result:", result);
+        res.render("users", { users: result });
+    } catch (err) {
+        console.log("Error, getUsers:", err);
+        res.redirect("/admin/login");
+    }
+};
+
+/** updateChosenUser */
+restaurantController.updateChosenUser = (req: Request, res: Response) => {
+    try {
+        console.log("updateChosenUser");
+    } catch (err) {
+        console.log("Error, updateChosenUser:", err);
+    }
+};
+
+/** checkAuthSession */
 restaurantController.checkAuthSession= async (req: AdminRequest, res: Response) => {
     try {
         console.log("checkAuthSession");
@@ -112,6 +149,8 @@ restaurantController.checkAuthSession= async (req: AdminRequest, res: Response) 
     }
 };
 
+
+/** verifyRestaurant */
 restaurantController.verifyRestaurant = (
     req: AdminRequest,
     res: Response,
