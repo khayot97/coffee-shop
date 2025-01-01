@@ -1,3 +1,30 @@
+// TASK-N: 
+function palindromCheck(input: string): boolean {
+    // Kiritilgan stringni pastki registrga o‘tkazamiz va bo‘sh joylarni olib tashlaymiz.
+    const cleanedString = input.toLowerCase().replace(/\s+/g, "");
+
+    // Stringni teskari o‘giramiz.
+    const reversedString = cleanedString.split("").reverse().join("");
+
+    // Teskari stringni asl string bilan solishtiramiz.
+    return cleanedString === reversedString;
+}
+
+console.log(palindromCheck("dad")); // true
+console.log(palindromCheck("son")); // false
+
+
+
+// Shunday function yozing, u string qabul qilsin va string
+//  palindrom yani togri oqilganda ham, orqasidan oqilganda
+//   ham bir hil oqiladigan soz ekanligini aniqlab boolean 
+//   qiymat qaytarsin.
+// MASALAN: palindromCheck("dad") return true;
+//   palindromCheck("son") return false;
+
+
+
+/*
 // TASK M:
 // Shunday function tuzing, u raqamlardan tashkil topgan array qabul qilsin
 // va array ichidagi har bir raqam uchun raqamning
@@ -16,7 +43,6 @@ function getSquareNumbers(input: number[]): {number: number; square: number}[] {
 const result = getSquareNumbers([1, 2, 3]);
 console.log("result:", result);
 
-/*
 // Mapga oid misollar:
 // function getSquareNumbers(input: number[]) {    
 //     return input.map(num => num * 2);
