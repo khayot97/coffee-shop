@@ -1,13 +1,43 @@
-\// Shunday function yozing, u string qabul qilsin va string
+// TASK O:
+
+// Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
+// Va array ichidagi sonlar yig'indisini hisoblab chiqgan javobni qaytarsin
+
+// MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]); return 45
+
+// Yuqoridagi misolda array tarkibida faqatgina ikkita yagona 
+// son mavjud bular 10 hamda 35
+// Qolganlari nested bo'lib yoki type'lari number emas.
+
+function calculateSumOfNumbers(arr: any[]): number {
+    let sum = 0;
+    // console.log("sum", sum);
+    arr.forEach((num) => {
+        // console.log("num:", num);
+        // console.log("arr:", arr);
+        if (typeof num === 'number') {
+            sum += num;
+        }
+    });
+    return sum;
+};
+
+const result = calculateSumOfNumbers([10, "10", {son: 10}, true, 35]);
+console.log("result:", result);
+
+
+/*
+TASK-N
+// Shunday function yozing, u string qabul qilsin va string
 //  palindrom yani togri oqilganda ham, orqasidan oqilganda
 //   ham bir hil oqiladigan soz ekanligini aniqlab boolean 
 //   qiymat qaytarsin.
 // MASALAN: palindromCheck("dad") return true;
 //   palindromCheck("son") return false;
 
-// TASK-N: 
 function palindromCheck(input: string): boolean {
-    // Kiritilgan stringni pastki registrga o‘tkazamiz va bo‘sh joylarni olib tashlaymiz.
+    // Kiritilgan stringni pastki registrga o‘tkazamiz va bo‘sh 
+    // joylarni olib tashlaymiz.
     const cleanedString = input.toLowerCase().replace(/\s+/g, "");
 
     // Stringni teskari o‘giramiz.
@@ -21,7 +51,6 @@ console.log(palindromCheck("dad")); // true
 console.log(palindromCheck("son")); // false
 
 
-/*
 // TASK M:
 // Shunday function tuzing, u raqamlardan tashkil topgan array qabul qilsin
 // va array ichidagi har bir raqam uchun raqamning
