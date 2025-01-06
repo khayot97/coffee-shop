@@ -1,3 +1,30 @@
+
+// TASK P:
+
+// Parametr sifatida yagona object qabul qiladigan function yozing.
+// Qabul qilingan objectni nested array sifatida convert qilib qaytarsin
+
+// MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+
+function objectToArray(obj: any): any {
+    if (typeof obj === 'object' && obj !== null) {
+        const result1 = [];
+        for (const [key, value] of Object.entries(obj)) {
+            if (typeof value === 'object' && value !== null) {
+                result1.push([key, objectToArray(value)]);
+            } else {
+                result1.push([key, value]);
+            }
+        } 
+        return result1;
+    }
+    return obj;
+}
+
+const result = objectToArray( {a: 10, b: 20});
+console.log("result:", result);
+
+/*
 // TASK O:
 
 // Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
@@ -26,7 +53,6 @@ const result = calculateSumOfNumbers([10, "10", {son: 10}, true, 35]);
 console.log("result:", result);
 
 
-/*
 TASK-N
 // Shunday function yozing, u string qabul qilsin va string
 //  palindrom yani togri oqilganda ham, orqasidan oqilganda
