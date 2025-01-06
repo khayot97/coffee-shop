@@ -32,7 +32,7 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
     try {
         console.log("createNewProduct");
 
-        console.log("req.files:", req.body);
+        console.log("req.files:", req.body); // body
 
         if (!req.files?.length)
             
@@ -44,6 +44,7 @@ productController.createNewProduct = async (req: AdminRequest, res: Response) =>
         });
 
         await productService.createNewProduct(data);
+        console.log("data:", data)
         res.send(
             `<script> alert("Sucessful creation!"); window.location.replace('/admin/product/all') </script>`
         );

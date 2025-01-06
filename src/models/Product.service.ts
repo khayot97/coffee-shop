@@ -23,6 +23,7 @@ public async getAllProducts(): Promise<Product[]> {
 
     public async createNewProduct(input: ProductInput): Promise<Product> {
         try {
+            console.log("input:", input);
             return await this.productModel.create(input);
         } catch (err) {
             console.log("Error, model:createNewProduct:", err);

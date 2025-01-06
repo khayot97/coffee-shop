@@ -1,4 +1,4 @@
-const { name } = require("ejs");
+// const { name } = required("ejs");
 
 console.log("Signup frontend javascript file");
 $(function () {
@@ -48,7 +48,7 @@ function validateSignupForm() {
         return false;
     }
 
-    const memberImage = $(".member-image").get(0).file[0]
+    const memberImage = $(".member-image").get(0)?.file[0]?.name
     ? $(".member-image").get(0).file[0].name
     : null;
     if (!memberImage) {
