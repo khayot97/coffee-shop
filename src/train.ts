@@ -1,4 +1,34 @@
+// TASK Q:
 
+// Shunday function yozing, u 2 ta parametrga ega bo'lib
+// birinchisi object, ikkinchisi string bo'lsin.
+// Agar qabul qilinayotgan ikkinchi string, objectning
+// biror bir propertysiga mos kelsa, 'true', aks holda mos kelmasa 'false' qaytarsin.
+
+// MASALAN: hasProperty({ name: "BMW", model: "M3" }, "model"); return true;
+// Ushbu misolda, 'model' string, objectning propertysiga mos kelganligi uchun
+// 'true' natijani qaytarmoqda
+
+// MASALAN: hasProperty({ name: "BMW", model: "M3" }, "year"); return false;
+// Ushbu misolda, ikkinchi argument sifatida berilayotgan 'year' objectning
+// propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
+
+// Generics yordamida hasProperty funksiyasi
+function hasProperty<T extends object>(obj: T, propertyName: string): boolean {
+    return propertyName in obj;
+}
+
+const result = hasProperty({ name: "BMW", model: "M3" }, "model"), // true 
+ result1 = hasProperty({ name: "BMW", model: "M3" }, "year"); // false
+
+ console.log("result:", result);
+ console.log("result1:", result1);
+
+ // T - Bu generik parametr, ya'ni tur (type) joyini saqlovchi o'zgaruvchi.
+ // T extends object faqat obyektlar bilan ishlaydigan kodni cheklaydi, bu xatolarni oldini oladi.
+//  Extends object - bu T parametri faqat obeyktlar turida bo'lishi keragligini bildiradi.
+// Bu degani T matn, raqam yoki boshqa primitiv turlar emas, faqat obeyktlar bo'lishi kerak.
+/*
 // TASK P:
 
 // Parametr sifatida yagona object qabul qiladigan function yozing.
@@ -24,7 +54,6 @@ function objectToArray(obj: any): any {
 const result = objectToArray( {a: 10, b: 20});
 console.log("result:", result);
 
-/*
 // TASK O:
 
 // Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.

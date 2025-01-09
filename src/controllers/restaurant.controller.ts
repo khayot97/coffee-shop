@@ -5,9 +5,9 @@ import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors"
 
-const memberService = new MemberService();
+const memberService = new MemberService(),
+  restaurantController: T = {};
 
-const restaurantController: T = {};
 restaurantController.goHome = (req: Request, res: Response) => {
     try {
         console.log("goHome");
@@ -75,8 +75,6 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
 restaurantController.processLogin = async (req: AdminRequest, res: Response) => {
     try {
         console.log("processLogin");
-        //test
-        console.log("body:", req.body);
         const input: LoginInput = req.body;
         const result = await memberService.processLogin(input);
         req.session.member = result;
@@ -120,6 +118,7 @@ restaurantController.getUsers = async (req: Request, res: Response) => {
         console.log("getUsers");
         const result = await memberService.getUsers();
         res.render("users", { users: result });
+        console.log("test:", result);
     } catch (err) {
         console.log("Error, getUsers:", err);
         res.redirect("/admin/login");
