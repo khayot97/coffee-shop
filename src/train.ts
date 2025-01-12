@@ -1,3 +1,34 @@
+// TASK-R
+
+// Shunday function yozing, u string parametrga ega bo'lsin.
+// Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+// string ichidagi sonlarni yig'indisini hisoblab, number holatida qaytarsin.
+// MASALAN: calculate("1 + 3"); return 4;
+// 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
+
+function calculate(str: string): number {
+    // String ichidagi barcha bosh joylarni olib tashledi!
+    const cleanStr = str.replace(/\s+/g, '');
+
+    // String ichidan raqamlar va opertorlarni ajratish!
+    const parts = cleanStr.split('+').map(Number);
+
+    // Raqamlarni yig'adi!
+    const sum = parts.reduce((total, num) => total + num, 0);
+
+    // Natijani qaytarmoqda!
+    return sum 
+}
+
+const result = calculate("1 + 3");
+console.log("result:", result);
+
+//1.replace(/\s+/g, '') – String ichidagi bo‘sh joylarni olib tashlaydi.
+//2.split('+').map(Number) – '+' belgisi bo‘yicha ajratadi va har bir
+//  elementni Number ga o‘zgartiradi.
+//3.reduce – Ajratilgan raqamlarni yig‘ib, natijani qaytaradi.
+
+/*
 // TASK Q:
 
 // Shunday function yozing, u 2 ta parametrga ega bo'lib
@@ -28,7 +59,7 @@ const result = hasProperty({ name: "BMW", model: "M3" }, "model"), // true
  // T extends object faqat obyektlar bilan ishlaydigan kodni cheklaydi, bu xatolarni oldini oladi.
 //  Extends object - bu T parametri faqat obeyktlar turida bo'lishi keragligini bildiradi.
 // Bu degani T matn, raqam yoki boshqa primitiv turlar emas, faqat obeyktlar bo'lishi kerak.
-/*
+
 // TASK P:
 
 // Parametr sifatida yagona object qabul qiladigan function yozing.
