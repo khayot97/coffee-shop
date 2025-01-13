@@ -1,3 +1,30 @@
+// TASK S
+
+// Shunday function tuzing, u numberlardan tashkil topgan array qabul qilsin
+// va o'sha numberlar orasidagi tushib qolgan sonni topib uni return qilsin.
+
+// MASALAN: missingNumber([3, 0, 1]); return 2
+
+// Yuqoridagi misolda, berilayotgan sonlar tarkibini tartiblasak
+// '2' soni tushib qolgan
+function missingNumber(arr: number[]): number {
+    // Arrayni tartiblash
+    arr.sort((a, b) => a - b);
+    // console.log("arr:", arr);
+    
+    // Tushib qolgan sonni qidirish
+    for (let i = 0; i <= arr.length; i++) {
+      if (arr[i] !== i) {
+        // console.log("i:", i);
+        return i;  // Tushib qolgan son
+      }
+    }
+    return -1; // Agar hammasi joyida bo'lsa, -1 qaytaradi
+  }
+const result = missingNumber([3, 0, 1]); 
+console.log("result:", result);
+
+/*
 // TASK-R
 
 // Shunday function yozing, u string parametrga ega bo'lsin.
@@ -28,7 +55,6 @@ console.log("result:", result);
 //  elementni Number ga o‘zgartiradi.
 //3.reduce – Ajratilgan raqamlarni yig‘ib, natijani qaytaradi.
 
-/*
 // TASK Q:
 
 // Shunday function yozing, u 2 ta parametrga ega bo'lib
