@@ -1,3 +1,24 @@
+// TASK U
+
+// Shunday function tuzing, uni number parametri bo'lsin.
+// Va bu function berilgan parametrgacha, 0'dan boshlab
+// oraliqda nechta toq sonlar borligini aniqlab return qilsi.
+
+// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+// Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda.
+// Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud. 
+// Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
+
+function sumOdds(add: number): number {
+    // Toq sonlarni sonini to'g'ridan-to'g'ri hisoblash!
+    return Math.floor(add / 2); // Toq sonlar sonini hisoblash formulasi!
+  }
+const result1 = sumOdds(9);
+const result2 = sumOdds(11);
+console.log("result1:", result1);
+console.log("result2:", result2);
+/*
 // TASK T
 
 // Shunday function tuzing, u sonlardan tashkil topgan
