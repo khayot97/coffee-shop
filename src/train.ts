@@ -1,3 +1,28 @@
+// TASK V
+
+// Shunday function yozing, uni string parametri bo'lsin.
+// Va bu function stringdagi har bir harfni o'zi bilan
+// necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
+  
+// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+// Yuqoridagi misolda, 'hello' so'zi tarkibida
+// qatnashgan harflar necha marotaba takrorlangini bilan
+// object sifatida qaytarilmoqda.
+
+function countChars(str: string): Record<string, number> {
+    const charCount: Record<string, number> = {}; // Natijani saqlash uchun obyekt
+
+    for (const char of str) {
+        charCount[char] = (charCount[char] || 0) + 1; // Har bir harifni hisobledi 
+    }
+    return charCount;
+}
+
+const result = countChars("hello");
+console.log("result:", result);
+
+/*
 // TASK U
 
 // Shunday function tuzing, uni number parametri bo'lsin.
@@ -18,7 +43,7 @@ const result1 = sumOdds(9);
 const result2 = sumOdds(11);
 console.log("result1:", result1);
 console.log("result2:", result2);
-/*
+
 // TASK T
 
 // Shunday function tuzing, u sonlardan tashkil topgan
