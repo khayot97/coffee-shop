@@ -72,3 +72,6 @@ memberController.verifyAuth = async (req: Request, res: Response) => {
 };
 
 export default memberController;
+
+// jsonwebtoken documentdan korib chiqishim kerak
+// cookie-parser bilan birga
