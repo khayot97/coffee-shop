@@ -3,12 +3,13 @@ import path from 'path';
 import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
+import cookieParser from 'cookie-parser';
 import { MORGAN_FORMAT } from './libs/config';
-
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 import ConnectMongoDBSession from 'connect-mongodb-session';
 import { T } from "./libs/types/common";
+
 
 const MongoDBStore = ConnectMongoDB(session);
 const store = new MongoDBStore({
@@ -21,6 +22,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
 
 /** 2-SESSIONS **/
