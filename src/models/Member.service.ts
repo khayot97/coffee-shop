@@ -13,9 +13,19 @@ class MemberService {
         this.memberModel = MemberModel;
     }
 
+/** GETMEMBERDETAIL  */
+public async getMemberDetail( member: Member): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const result = await this.memberModel
+        .findOne({ _id: memberId, memberStatus: MemberStatus.ACTIVE })
+        .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
+}
+
 
 /** SPA */
-
 /** Password hashing */
 public async signup(input: MemberInput): Promise<Member> {
     const salt = await bcrypt.genSalt();
@@ -52,7 +62,6 @@ public async login(input: LoginInput): Promise<Member> {
         member.memberPassword
     );
 
-    // const isMatch = input.memberPassword === member.memberPassword;
     if (!isMatch) {
         throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
@@ -61,7 +70,7 @@ public async login(input: LoginInput): Promise<Member> {
 }
 
 /** BSSR */
-    // Sign Up
+    // SignUp
     public async processSignup(input: MemberInput): Promise<Member> {
         const exist = await this.memberModel
         .findOne({memberType: MemberType.RESTAURANT})
@@ -81,7 +90,7 @@ public async login(input: LoginInput): Promise<Member> {
         }
     }
 
-    // Login
+    /** PROCESSLOGIN */
     public async processLogin(input: LoginInput): Promise<Member> {
         const member = await this.memberModel
             .findOne(
