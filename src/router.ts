@@ -5,6 +5,7 @@ import memberController from "./controllers/member.controller";
 /** MEMBER */
 router.post("/login", memberController.login);
 router.post("/signup", memberController.signup);
+router.post("/member/logout", memberController.verifyAuth, memberController.logout);
 router.get("/member/detail", memberController.verifyAuth);
 
 /** PRODUCT */
