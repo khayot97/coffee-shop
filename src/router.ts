@@ -4,8 +4,14 @@ import memberController from "./controllers/member.controller";
 import uploader from "./libs/utils/uploader";
 
 /** MEMBER */
-router.post("/member/login", memberController.login);
-router.post("/member/signup", memberController.signup);
+router.post(
+    "/member/login",
+    memberController.login
+);
+router.post(
+    "/member/signup", 
+    memberController.signup
+);
 
 router.post(
     "/member/logout",
@@ -25,6 +31,12 @@ router.post(
     uploader("members").single("memberImage"),
     memberController.updateMember
 );
+
+router.get(
+    "/member/top-users", 
+    memberController.getTopUsers,
+);
+
 
 /** PRODUCT */
 

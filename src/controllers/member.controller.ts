@@ -70,6 +70,7 @@ memberController.logout = async (req: ExtendedRequest, res: Response ) => {
 };
 
 // 70 dars ohirini korib chiqishim kerak
+// mongooeni documnetiga kirib Queryni organib chiqamiz
 /** UPDATEMEMBER */
 memberController.updateMember = async (req: ExtendedRequest, res: Response ) => {
     try {
@@ -103,6 +104,22 @@ memberController.getMemberDetail = async (req: ExtendedRequest, res: Response ) 
         else res.status(Errors.standard.code).json(Errors.standard);
     }
 };
+
+/** GETTOPUSERS */
+memberController.getTopUsers = async (req: ExtendedRequest, res: Response ) => {
+    try {
+        console.log("getTopUsers");
+        const result = await memberService.getTopUsers();
+
+        res.status(HttpCode.OK).json(result);
+    } catch (err) {
+        console.log("Error, getTopUsers:", err);
+        if (err instanceof Errors) res.status(err.code).json(err);
+        else res.status(Errors.standard.code).json(Errors.standard);
+    }
+};
+
+
 
 /** VERIFYAUTH */
 memberController.verifyAuth = async (req: ExtendedRequest, res: Response, next: NextFunction ) => {
