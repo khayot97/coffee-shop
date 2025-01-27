@@ -116,5 +116,3 @@ memberController.retrieveAuth = async (req: ExtendedRequest, res: Response, next
 
 export default memberController;
 
-// jsonwebtoken documentdan korib chiqishim kerak
-// cookie-parser bilan birga

@@ -26,7 +26,6 @@ public async getMemberDetail( member: Member): Promise<Member> {
 
 
 /** SPA */
-/** Password hashing */
 public async signup(input: MemberInput): Promise<Member> {
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
@@ -70,14 +69,12 @@ public async login(input: LoginInput): Promise<Member> {
 }
 
 /** BSSR */
-    // SignUp
+/** PROCESSSIGNUP */
     public async processSignup(input: MemberInput): Promise<Member> {
         const exist = await this.memberModel
         .findOne({memberType: MemberType.RESTAURANT})
         .exec();
         if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
-
-        // Password hashing
         const salt = await bcrypt.genSalt();
         input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
@@ -112,7 +109,7 @@ public async login(input: LoginInput): Promise<Member> {
         return await this.memberModel.findById(member._id).exec();
     }
 
-/** getUser */
+/** GETUSER */
     public async getUsers(): Promise<Member[]> {
         const result = await this.memberModel
             .find({ memberType: MemberType.USER })
@@ -121,7 +118,7 @@ public async login(input: LoginInput): Promise<Member> {
         return result;
     }
 
-/** updateChosenUser */
+/** UPDATECHOSENUSER */
     public async updateChosenUser(input: MemberUpdateInput): Promise<Member> {
         input._id = shapeIntoMongooseObjectId(input._id);
         const result = await this.memberModel

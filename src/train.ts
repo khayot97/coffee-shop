@@ -1,3 +1,42 @@
+// TASK X
+
+// Shunday function yozing, uni object va string parametrlari bo'lsin.
+// Bu function, birinchi object parametri tarkibida, kalit sifatida ikkinchi string parametri
+// necha marotaba takrorlanganlini sanab qaytarsin.
+
+// Eslatma => Nested object'lar ham sanalsin
+
+// MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+// Yuqoridagi misolda, birinchi argument object, ikkinchi argument 'model'.
+// Funktsiya, shu ikkinchi argument 'model', birinchi argument object
+// tarkibida kalit sifatida 2 marotaba takrorlanganligi uchun 2 soni return qilmoqda
+function countOccurrences(obj: any, key: string): number {
+    let count = 0; // Takrorlanishlar sonini hisoblagich!
+
+    // Obektni iteratsiya qilamiz!
+    for (let k in obj) {
+        if (obj.hasOwnProperty(k)) {
+            // Agar kalit obyekitning o'zida bo'lsa va kalitni tenglashtirsak
+            if (k === key) {
+            // Agar topilgan bo'lsa sonni  bittaga oshiramiz
+                count++; 
+            }
+
+            // Agar qiymat yana bir obekt bo'lsa, rekursiya chaqiramiz
+            if (typeof obj[k] === 'object' && obj[k] !== null) {
+                count += countOccurrences(obj[k], key);
+            }
+        }
+    }
+    // Takrorlanishlar sonini qaytaramiz
+    return count; 
+}
+
+const result = countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model');
+console.log("result:", result);
+
+/*
 // TASK W
 
 // Shunday function yozing, u o'ziga parametr sifatida
@@ -21,7 +60,6 @@ function chunkArray(array: any[], size: number): any[][] {
 const result = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
 console.log("result:", result);
 
-/*
 // TASK V
 
 // Shunday function yozing, uni string parametri bo'lsin.
