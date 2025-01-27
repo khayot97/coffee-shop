@@ -23,7 +23,15 @@ public async getMemberDetail( member: Member): Promise<Member> {
 
     return result;
 }
+/** GETRESTAURANT */
+public async getRestaurant(): Promise<Member> {
+    const result = await this.memberModel
+        .findOne({ memberType: MemberType.RESTAURANT })
+        .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
+    return result;
+}
 
 /** SPA */
 public async signup(input: MemberInput): Promise<Member> {
