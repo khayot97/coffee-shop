@@ -68,7 +68,19 @@ public async login(input: LoginInput): Promise<Member> {
     return await this.memberModel.findById(member._id).lean().exec();
 }
 
-/** BSSR */
+/** UPDATEMEMBER */
+public async updateMember( member: Member, input: MemberUpdateInput): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const result = await this.memberModel
+        .findOneAndUpdate({ _id: memberId }, input, { new: true })
+        .exec();
+    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+
+    return result;
+}
+
+//16 
+/** SSR */
 /** PROCESSSIGNUP */
     public async processSignup(input: MemberInput): Promise<Member> {
         const exist = await this.memberModel
