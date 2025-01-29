@@ -87,6 +87,7 @@ memberController.logout = async (req: ExtendedRequest, res: Response ) => {
 
 // 70 dars ohirini korib chiqishim kerak
 // mongooeni documnetiga kirib Queryni organib chiqamiz
+// agregate ham korishn kerak match va limit 
 /** UPDATEMEMBER */
 memberController.updateMember = async (req: ExtendedRequest, res: Response ) => {
     try {
