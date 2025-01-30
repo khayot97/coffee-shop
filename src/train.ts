@@ -1,3 +1,44 @@
+// TASK Y
+
+// Shunday function yozing, uni 2'ta array parametri bo'lsin.
+// Bu function ikkala arrayda ham ishtirok etgan bir xil
+// qiymatlarni yagona arrayga joylab qaytarsin.
+
+// MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+// Yuqoridagi misolda, argument sifatida berilayotgan array'larda
+// o'xshash sonlar mavjud. Function'ning vazifasi esa ana shu
+// ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
+// joylab return qilmoqda.
+
+// Step 1
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+    const set1 = new  Set(arr1),
+        set2 = new Set(arr2);
+
+    return [ ...set1].filter(num => set2.has(num));
+}
+
+const result = findIntersection([1,2,3], [3,2,0]);
+console.log("result:", result);
+
+// // Step 2
+// function findIntersection2(arr3: number[], arr4: number[]): number[] {
+//     const set4 = new Set(arr4); // Arr2 ni Set ga o'giramiz (tezroq qidirish uchun)
+//     const result1: number[] = []; // Massivni saqlash uchun bo'sh array
+
+//     for (const num of arr3) { // Arr1 ichidagi har bir elementni tekshiramiz
+//         if (set4.has(num)) { // Agar set3 ichida bo'lsa 
+//             result1.push(num); // natijani massivga qo'shamiz
+//         }
+//     }
+
+//     return result1;
+// }
+// const result2 = findIntersection2([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
+// console.log("result2:", result2);
+
+/*
 // TASK X
 
 // Shunday function yozing, uni object va string parametrlari bo'lsin.
@@ -36,7 +77,6 @@ function countOccurrences(obj: any, key: string): number {
 const result = countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model');
 console.log("result:", result);
 
-/*
 // TASK W
 
 // Shunday function yozing, u o'ziga parametr sifatida
