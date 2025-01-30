@@ -27,7 +27,6 @@ memberController.getRestaurant = async (req: Request, res: Response ) => {
 };
 
 
-
 /** SIGNUP */
 memberController.signup = async (req: Request, res: Response) => {
     try {
@@ -41,7 +40,6 @@ memberController.signup = async (req: Request, res: Response) => {
             maxAge: AUTH_TIMER * 3600 * 1000,
             httpOnly: false,
         });
-
         res.status(HttpCode.CREATED).json({ member: result, accessToken: token });
     } catch (err) {
         console.log("Error, signup:", err);
@@ -85,16 +83,13 @@ memberController.logout = async (req: ExtendedRequest, res: Response ) => {
     }
 };
 
-// 70 dars ohirini korib chiqishim kerak
-// mongooeni documnetiga kirib Queryni organib chiqamiz
-// agregate ham korishn kerak match va limit 
 /** UPDATEMEMBER */
 memberController.updateMember = async (req: ExtendedRequest, res: Response ) => {
     try {
         console.log("updateMember");
         const input: MemberUpdateInput= req.body;
-        if(req.file) input.memberImage = req.file.path.replace(/\\/, "/");
-        console.log("Uploaded File:", req.file);
+        if(req.file) input.memberImage = req.file.path.replace(/\\/g, "/");
+    
 
         const result = await memberService.updateMember(req.member, input);
 
@@ -105,7 +100,6 @@ memberController.updateMember = async (req: ExtendedRequest, res: Response ) => 
         else res.status(Errors.standard.code).json(Errors.standard);
     }
 };
-
 
 
 /** GETMEMBERDETAIL */
@@ -143,7 +137,7 @@ memberController.verifyAuth = async (req: ExtendedRequest, res: Response, next: 
     try {
         const token = req.cookies["accessToken"];
         if (token) req.member = await authService.checkAuth(token);
-
+        console.log("token 2 =>: :", token);
         if (!req.member) 
             throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
         next();
@@ -159,7 +153,7 @@ memberController.retrieveAuth = async (req: ExtendedRequest, res: Response, next
     try {
         const token = req.cookies["accessToken"];
         if (token) req.member = await authService.checkAuth(token);
-
+        console.log("token => :", token);
         next();
     } catch (err) {
         console.log("Error, retrieveAuth:", err);

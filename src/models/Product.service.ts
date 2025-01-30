@@ -4,10 +4,10 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { Product, ProductInput, ProductInquiry, ProductUpdateInput } from "../libs/types/product";
 import ProductModel from "../schema/Product.model";
 import { T } from "../libs/types/common";
+import { ObjectId } from "mongoose";
 
 class ProductService {
     private readonly productModel;
-
     constructor() {
         this.productModel = ProductModel;
     }
@@ -24,9 +24,9 @@ public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
     }
     
     const sort: T = 
-    inquiry.order === "productPrice"
-        ? { [inquiry.order]: 1 }
-        : { [inquiry.order]: -1 };;
+        inquiry.order === "productPrice"
+            ? { [inquiry.order]: 1 }
+            : { [inquiry.order]: -1 };
 
     const result = await this.productModel
         .aggregate([
@@ -42,6 +42,18 @@ public async getProducts(inquiry: ProductInquiry): Promise<Product[]> {
 
 };
 
+/** GETPROUDCT */
+public async getProduct(memberId: ObjectId | null, id: string): Promise<Product> {
+    const prodoctId = shapeIntoMongooseObjectId(id);
+    let result = await this.productModel
+        .findOne({ _id: prodoctId, productStatus: ProductStatus.PROCESS })
+        .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    // TODO: if authenticated users => first => view log creation
+    return result;
+   
+}
 
 /** SSR */
 /** GETALLPROUDCTS */
@@ -73,9 +85,7 @@ public async getAllProducts(): Promise<Product[]> {
             .exec();
         if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
         return result;
-       
     }
-
 }
 
 export default ProductService;
