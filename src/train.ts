@@ -11,7 +11,16 @@
 // Yuqoridagi misolda, bizning funktsiya
 // berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
 // sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
+function sumEvens(arr: number[]): number {
+    //.filter(num => num % 2 === 0) orqali juft sonlarni tanlaydi.
+    // .reduce((sum, num) => sum + num, 0) orqali tanlangan juft sonlarning yig‘indisini qaytaradi.
+    return arr.filter(num => num % 2 === 0).reduce((sum, num) => sum + num, 0);
+}
 
+const result1 = sumEvens([1, 2, 3]),
+    result2 = sumEvens([1, 2, 3, 2]);
+console.log("result1:", result1);
+console.log("result2:", result2);
 
 /*
 // TASK Y
