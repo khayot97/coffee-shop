@@ -101,6 +101,23 @@ public async getTopUsers(): Promise<Member[]> {
 
     return result;
 }
+
+/** ADDUSERPOINT */
+public async addUserPoint(member: Member, point: number): Promise<Member> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    return await this.memberModel
+        .findOneAndUpdate(
+            {
+                _id: memberId,
+                memberType: MemberType.USER,
+                memberStatus: MemberStatus.ACTIVE,
+            },
+            { $inc: { memberPoints: point } },
+            { new: true }
+        )
+        .exec();
+};
+
 /** SSR */
 /** PROCESSSIGNUP */
     public async processSignup(input: MemberInput): Promise<Member> {
@@ -148,6 +165,7 @@ public async getTopUsers(): Promise<Member[]> {
             .find({ memberType: MemberType.USER })
             .exec();
         if  (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
         return result;
     }
 
@@ -158,6 +176,7 @@ public async getTopUsers(): Promise<Member[]> {
             .findByIdAndUpdate({ _id: input._id }, input, { new: true})
             .exec();
         if  (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+        
         return result;
     }
 };
