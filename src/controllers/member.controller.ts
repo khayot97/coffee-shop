@@ -17,7 +17,6 @@ memberController.getRestaurant = async (req: Request, res: Response ) => {
     try {
         console.log("getRestaurant");
         const result = await memberService.getRestaurant();
-
         res.status(HttpCode.OK).json(result);
     } catch (err) {
         console.log("Error, getRestaurant:", err);
@@ -31,11 +30,9 @@ memberController.getRestaurant = async (req: Request, res: Response ) => {
 memberController.signup = async (req: Request, res: Response) => {
     try {
         console.log("signup");
-
         const input: MemberInput = req.body,
             result: Member = await memberService.signup(input);
         const token = await authService.createToken(result);
-
         res.cookie("accesToken", token, {
             maxAge: AUTH_TIMER * 3600 * 1000,
             httpOnly: false,
@@ -52,11 +49,9 @@ memberController.signup = async (req: Request, res: Response) => {
 memberController.login = async (req: Request, res: Response) => {
     try {
         console.log("login");
-
         const input: LoginInput = req.body,
             result = await memberService.login(input),
             token = await authService.createToken(result);
-
         res.cookie("accessToken", token, {
             maxAge: AUTH_TIMER * 3600 * 1000,
             httpOnly: false,
@@ -89,10 +84,7 @@ memberController.updateMember = async (req: ExtendedRequest, res: Response ) => 
         console.log("updateMember");
         const input: MemberUpdateInput= req.body;
         if(req.file) input.memberImage = req.file.path.replace(/\\/g, "/");
-    
-
         const result = await memberService.updateMember(req.member, input);
-
         res.status(HttpCode.OK).json(result);
     } catch (err) {
         console.log("Error, updateMember:", err);
@@ -107,7 +99,6 @@ memberController.getMemberDetail = async (req: ExtendedRequest, res: Response ) 
     try {
         console.log("getMemberDetail");
         const result = await memberService.getMemberDetail(req.member);
-
         res.status(HttpCode.OK).json(result);
     } catch (err) {
         console.log("Error, getMemberDetail:", err);
@@ -121,7 +112,6 @@ memberController.getTopUsers = async (req: ExtendedRequest, res: Response ) => {
     try {
         console.log("getTopUsers");
         const result = await memberService.getTopUsers();
-
         res.status(HttpCode.OK).json(result);
     } catch (err) {
         console.log("Error, getTopUsers:", err);
@@ -137,7 +127,7 @@ memberController.verifyAuth = async (req: ExtendedRequest, res: Response, next: 
     try {
         const token = req.cookies["accessToken"];
         if (token) req.member = await authService.checkAuth(token);
-        console.log("token 2 =>: :", token);
+        // console.log("token 2 =>: :", token);
         if (!req.member) 
             throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
         next();
