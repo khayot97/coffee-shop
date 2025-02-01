@@ -1,3 +1,19 @@
+// TASK Z
+
+// Shunday function yozing. Bu function sonlardan iborat array
+// qabul qilsin. Function'ning vazifasi array tarkibidagi juft
+// sonlarni topib ularni yig'disini qaytarsin.
+
+// MASALAN:
+// sumEvens([1, 2, 3]); return 2;
+// sumEvens([1, 2, 3, 2]); return 4;
+
+// Yuqoridagi misolda, bizning funktsiya
+// berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
+// sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
+
+
+/*
 // TASK Y
 
 // Shunday function yozing, uni 2'ta array parametri bo'lsin.
@@ -38,7 +54,6 @@ console.log("result:", result);
 // const result2 = findIntersection2([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
 // console.log("result2:", result2);
 
-/*
 // TASK X
 
 // Shunday function yozing, uni object va string parametrlari bo'lsin.
