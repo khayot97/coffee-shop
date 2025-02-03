@@ -1,3 +1,26 @@
+// TASK ZA
+
+// Shunday function yozing, u array ichidagi objectlarni
+// 'age' qiymati bo'yicha sortlab bersin.
+
+// MASALAN: sortByAge([{age:23}, {age:21}, {age:13}]) return [{age:13}, {age:21}, {age:23}]
+
+// Yuqoridagi misolda, kichik raqamlar katta raqamlar tomon
+// tartiblangan holatda return bo'lmoqda.
+
+type Age = { age: number};
+
+function sortByAge(arr: Age[]): Age[] {
+    return arr.sort((a, b) => a.age - b.age);
+}
+
+
+
+
+const result = sortByAge([{age:23}, {age:21}, {age:13}]);
+console.log("result:", result);
+
+/*
 // TASK Z
 
 // Shunday function yozing. Bu function sonlardan iborat array
@@ -22,7 +45,6 @@ const result1 = sumEvens([1, 2, 3]),
 console.log("result1:", result1);
 console.log("result2:", result2);
 
-/*
 // TASK Y
 
 // Shunday function yozing, uni 2'ta array parametri bo'lsin.

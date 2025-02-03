@@ -66,6 +66,8 @@ class OrderService {
         const matches = { memberId: memberId, orderStatus: inquiry.orderStatus };
         
         const result = await this.orderModel
+        // agreggatdan foydalnsak bir martda boradi shu hamma buyruqlarni oziga qabul qiladi hamma methdolarni bajarib malumotni bizga beradi
+        // collection aro malumotlarni yigishga ham ega va shunda ham bir martda boradi databasega 
             .aggregate([
                 { $match: matches },
                 { $sort: { updateAt: -1 } },
