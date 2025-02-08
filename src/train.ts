@@ -12,10 +12,22 @@
 // Bizning function uchinchi berilgan '2' raqamini shu '3' bilan almashtirib,
 // yangilangan arrayni qaytarmoqda.
 
-function changeNumberInArray(arr: number)
 
+function changeNumberInArray(index: number, arr: number[], newValue: number): number[] {
+    // Agar indeks noto‘g‘ri bo‘lsa, asl arrayni qaytaramiz
+    if (index < 0 || index >= arr.length) {
+        console.error("Index out of bounds!");
+        return arr;
+    }
+    
+    // Arrayni nusxalab olish (asl array o'zgarmasligi uchun)
+    const newArray = [...arr];
 
-
+    // Indeks bo‘yicha yangi qiymatni joylashtirish
+    newArray[index] = newValue;
+    
+    return newArray;
+}
 const result = changeNumberInArray(1, [1,3,7,2], 2);
 console.log("result:", result);
 
