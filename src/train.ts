@@ -1,3 +1,28 @@
+
+// TASK-ZF:
+
+// Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni 
+// bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni
+// esa oz holicha qoldirsin.
+// MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+
+
+
+function capitalizeWords(str: string): string {
+    return str.split(' ') // Stringni so'zlarga ajratamiz
+        .map((word: string) => { // Har bir so'zni tekshiramiz
+            if (word.length <= 2) {
+                return word; // 2a. 1 yoki 2 harifdan iborat bo'lsa, ozgartirmaymiz
+            }
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); // 2b. Aks holda, birinchi harfni katta qilamiz
+        })
+        .join(' '); // So'zlarni qayta birlashtiramiz
+}
+
+const result = capitalizeWords('name should be a string');
+console.log("result:", result);
+
+/*
 // TASK ZE
 
 // Shunday function yozing, uniygona string parametri mavjud bo'lsin.
@@ -18,7 +43,11 @@ function removeDuplicate(str: string): string {
 const result = removeDuplicate('stringg');
 console.log("result:", result);
 
-/*
+// new Set(str) — str stringidagi har bir belgini tekshirib, faqat takrorlanmagan
+// (noyob) belgilardan iborat Set hosil qiladi.
+// Array.from(...) — bu Set ni massivga aylantiradi.
+// .join('') — massiv elementlarini bitta stringga birlashtiradi.
+
 // TASK ZD
 
 // Shunday function yozing. Bu function o'ziga, parametr sifatida
