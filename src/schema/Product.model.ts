@@ -47,7 +47,7 @@ const productSchema = new Schema(
         productVolume: {
             type: Number,
             enum: ProductVolume,
-            default: ProductVolume.ONE,
+            default: ProductVolume.NORMAL_ml,
         },
 
         productDesc: {
