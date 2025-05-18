@@ -7,7 +7,9 @@ export enum ProductSize {
 export enum ProductVolume {
     SMALL_ml = 250,
     NORMAL_ml = 350,
-    LARGE_ml = 500,
+    LARGE_ml = 450,
+    AVERAGE_ml = 500,
+    BIG_ml = 600,
 }
 
 export enum ProductStatus {

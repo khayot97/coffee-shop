@@ -28,6 +28,4 @@ class ViewService {
     }
 }
 
-
-
 export default ViewService;
